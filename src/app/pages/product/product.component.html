@@ -1,0 +1,42 @@
+<p-toast
+  [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }"
+></p-toast>
+<div class="d-flex justify-content-between">
+<button
+  type="button"
+  class="btn btn-primary m-2"
+  [routerLink]="['/add-product']"
+>
+  Ajouter un produit
+</button>
+<button type="button" class="btn btn-danger m-2" (click)="OnDisconnect()">Déconnexion</button></div>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prix</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productsToDisplay">
+        <th scope="row">{{ productsToDisplay.indexOf(product) + 1 }}</th>
+        <td>{{ product.nom }}</td>
+        <td>{{ product.prix }}</td>
+        <td>{{ product.quantite }}</td>
+        <td>
+          <button class="btn btn-primary mr-2" [routerLink]="[('/update'), product.id]">Éditer</button
+          ><button
+            class="btn btn-danger"
+            (click)="OnDeleteProduct(product.id!)"
+          >
+            Supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

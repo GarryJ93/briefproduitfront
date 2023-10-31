@@ -1,0 +1,50 @@
+<p-toast
+  [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }"
+></p-toast>
+<div class="d-flex justify-content-center">
+  <div class="mt-5">
+    <form [formGroup]="login" (ngSubmit)="OnConnect()" class="">
+      <div class="mb-3">
+        <label class="form-label">E-mail</label>
+        <div class="">
+          <input
+            formControlName="email"
+            class="form-control"
+            type="email"
+            placeholder=""
+            value=""
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+          />
+
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Mot de passe</label>
+        <div class="">
+          <input
+            formControlName="motdepasse"
+            class="form-control"
+            type="password"
+            placeholder=""
+            value=""
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{12,}$"
+          />
+
+        </div>
+      </div>
+
+      
+        <div class="control">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!login.valid"
+          >
+            Se connecter
+          </button>
+        
+      </div>
+    </form>
+  </div>
+</div>
